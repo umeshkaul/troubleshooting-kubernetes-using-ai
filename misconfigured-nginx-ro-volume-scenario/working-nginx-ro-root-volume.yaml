@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-ro-root
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+        securityContext:
+          readOnlyRootFilesystem: true   # ro root configured
+        volumeMounts:
+          - name: run
+            mountPath:  /var/run
+          - name: log
+            mountPath:  /var/log/nginx
+          - name: cache
+            mountPath:  /var/cache/nginx
+      volumes:
+        - name: run
+          emptyDir:
+            medium: ""
+        - name: log
+          emptyDir:
+            medium: ""
+        - name: cache
+          emptyDir:
+            medium: ""
