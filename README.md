@@ -1,3 +1,4 @@
+# Using AI for Kubernetes Troubleshooting
 
 ## Summary
 Artificial intelligence continues to transform the way we manage infrastructure, and its integration into DevOps is unlocking powerful new capabilities. In this walkthrough, we’ll demonstrate how to leverage the [function/tool calling](https://platform.openai.com/docs/guides/function-calling?api-mode=chat#overview) features of large language models (LLMs) to troubleshoot issues in a local Kind Kubernetes cluster. 
