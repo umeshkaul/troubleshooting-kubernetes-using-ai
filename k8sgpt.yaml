@@ -1,0 +1,12 @@
+ai:
+    providers:
+    - name: openai
+      model: gpt-4o-mini      # you can use any model but I found gpt-4o-mini to be ok for my testing
+      password: XXXXXXXXXXXX  # your OpenAI API key goes here
+      temperature: 0.7
+      topp: 0.5
+      topk: 50
+      maxtokens: 2048
+    defaultprovider: "openai"
+kubeconfig: ""
+kubecontext: ""
