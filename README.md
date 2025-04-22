@@ -48,21 +48,11 @@ In this post, we will use function/tool calling with below tools to troubleshoot
 #### System Overview
 
 Below is a schematic that shows the **data flow between different components** of the system we will use to troubleshoot.
- 
-```
-+--------+           +-----------+           +--------+
-|  User  +---------> | gptscript +<--------->|  LLM   |
-+--------+           +-----------+           +--------+
-                          |
-                          | executes 
-                          | commands on 
-                          | local machine
-                          v
-                +----------------------+
-                |   kubectl / k8sgpt   |
-                +----------------------+
 
-```
+<!-- ![data flow between different components](ai-troubleshooting.png) -->
+
+<img src="ai-troubleshooting.png" alt="data flow between different components" width="600"/>
+
 Flow Description:   
 1. The user provides a natural language instruction to `gptscript` cli tool asking it to solve the problem. As part of instructions LLM is also told that it has access to run `kubectl` and `k8sgpt` commands if needed. Note that LLM cannot run these commands directly on your computer but ask `gptscript` to run them and report the results(using function/tools calling feature of OpenAI).
 2. `gptscript` (runs on user's system) sends that input to the LLM using function/tool calling.
